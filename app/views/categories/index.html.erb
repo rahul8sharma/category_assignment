@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'New Category', new_category_path %>
+
+<h1>Categories</h1>
+<% @categories.each do |category| %>
+  <ul>
+    <% if category.parent_id.blank? %>
+      <li class="big-bold"><%= category.name %>
+        <% if category.sub_categories.present? %>
+          <%= render partial: 'subcategory', locals: {subcategories: category.sub_categories} %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

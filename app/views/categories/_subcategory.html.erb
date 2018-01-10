@@ -1,0 +1,9 @@
+<ul>
+  <% subcategories.each do |sub| %>
+    <li class="top-clear"><%= sub.name %>
+      <% if sub.sub_categories.present? %>
+        <%= render partial: 'subcategory', locals: {subcategories: sub.sub_categories} %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
